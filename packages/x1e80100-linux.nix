@@ -36,6 +36,14 @@ linuxPackagesFor (buildLinux {
 
   kernelPatches = [
     {
+      name = "rust: irq: add `'static` bounds to irq callbacks";
+      patch = fetchpatch {
+        url = "https://github.com/torvalds/linux/commit/621609f1e5ca43a75edd497dd1c28bd84aa66433.patch";
+        hash = "sha256-78Nv3P2sWjGwpmHdUPbo6EAmcI6wthMRsmLpOKM8oCM=";
+      };
+    }
+
+    {
       name = "Add slim7x EC driver";
       # From: https://lore.kernel.org/lkml/20241219200821.8328-1-maccraft123mc@gmail.com/
       patch = ./lenovo-yoga-slim7x-ec.patch;

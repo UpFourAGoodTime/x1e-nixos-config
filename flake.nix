@@ -46,6 +46,12 @@
                 url = "https://github.com/NixOS/nixpkgs/commit/de1fdb6310af8f70c98746ba4550dc2799a03621.patch";
                 hash = "sha256-brqJxblmqWFAk8JgxmxXeHoiaWiQtsCsOzht/WlH5eE=";
               })
+              (pkgs-unpatched.fetchpatch {
+                # git: Fix cross compilation
+                # https://github.com/NixOS/nixpkgs/pull/526197
+                url = "https://github.com/NixOS/nixpkgs/commit/7469adb7ea37b820d04def428b8619e4a9203825.patch";
+                hash = "sha256-MXbdbUKazEyKHFW3FgGGEqsPl9A6FHi1noLJb1vSjRc=";
+              })
               ./nixpkgs-efi-shell.patch
             ];
           }).overrideAttrs
