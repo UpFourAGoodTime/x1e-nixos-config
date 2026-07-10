@@ -18,7 +18,7 @@ Note that I only have the Lenovo Yoga Slim 7x, so the repo will be focused aroun
 | Battery Charge Limiting |          ✅          |                                     ✅                                     |                                                                                  |
 | Battery Indicator       |          ✅          |                                     ✅                                     |                                                                                  |
 | Bluetooth               |          ✅          |                                     ✅                                     |                                                                                  |
-| Camera                  |          🟨          |                                     🟨                                     | Sometimes upside-down, bit green.                                                |
+| Camera                  |          ❌          |                                     ❌                                     |                                                                                  |
 | Display                 |          ✅          |                                     ✅                                     |                                                                                  |
 | Fingerprint Reader      |         N/A          |                                     ❔                                     |                                                                                  |
 | GPU Acceleration        |          ✅          |                                     ✅                                     |                                                                                  |
@@ -47,6 +47,16 @@ Note that I only have the Lenovo Yoga Slim 7x, so the repo will be focused aroun
 | _Notes_                 |                      | Only 31GB of RAM works reliably. OLED version needs different device tree. |                                                                                  |
 
 Some things may be working and have drivers, but are not yet included here.
+
+## Kernel choice {#kernel-choice}
+
+Currently the best option is to use the latest upstream kernel. This module sets `pkgs.linuxPackages_latest` to be used by default.
+
+We have a custom kernel package, but it has been stuck at v6.19 due to a lack of maintenance, and is not recommended. You can use it by setting:
+
+```nix
+boot.kernelPackages = pkgs.x1e80100-linux;
+```
 
 ## Getting the installer ISO
 
