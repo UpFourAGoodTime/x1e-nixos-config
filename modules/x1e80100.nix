@@ -77,6 +77,18 @@ in
               # Needed for USB
               "phy_nxp_ptn3222"
               "phy_qcom_qmp_usb"
+
+              # Kernel 7.1.x adds the t14s HDMI port to the device tree:
+              # mdss_dp2 (ae9a000) -> aux_bridge -> rtd2171 (simple_bridge) ->
+              # hdmi-connector (display_connector). msm's component bind waits
+              # for the complete bridge chain of every DP controller, so
+              # without these the internal panel stays dark for all of stage 1
+              # (e.g. while typing the LUKS passphrase).
+              "simple_bridge"
+              "display_connector"
+              "mux_gpio"
+              "reset_gpio"
+              "gpio_shared_proxy"
             ])
           ];
 
